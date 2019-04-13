@@ -14,4 +14,20 @@ window.addEventListener('resize', () => console.log('resized window'));
 
 window.addEventListener('keydown', (e) => {
   console.log(e.keyCode === 13 ? 'Go to signup' : `${e.key} was pressed`);
-})
+});
+
+document.body.addEventListener('copy', () => console.log(document.getSelection().toString()));
+
+document.forms['destForm']['destInput']
+  .addEventListener('focus', () => console.log('input focused'));
+
+document.forms['destForm']['destInput']
+  .addEventListener('blur', () => console.log('input blurred'));
+
+document.forms['destForm']
+  .addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formVal = document.forms['destForm']['destInput'].value;
+    document.forms['destForm']['destInput'].value = '';
+    alert(formVal);
+  })
