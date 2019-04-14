@@ -30,4 +30,14 @@ document.forms['destForm']
     const formVal = document.forms['destForm']['destInput'].value;
     document.forms['destForm']['destInput'].value = '';
     alert(formVal);
-  })
+  });
+
+document.body.querySelectorAll('section.content-section')
+  .forEach(e => e.addEventListener('dblclick', (event) => console.log(event)));
+  
+
+document.body.querySelectorAll('section.content-section div img')
+  .forEach(e => e.addEventListener('dblclick', (event) => {
+    event.stopPropagation()
+    console.log(event);
+  }));
